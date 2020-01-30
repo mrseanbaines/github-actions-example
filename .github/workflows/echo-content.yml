@@ -4,17 +4,10 @@ on: [push]
 
 jobs:
   build:
-    name: Matrix
-    strategy:
-      matrix:
-        runs-on: [ubuntu-latest, macOS-latest, windows-latest]
-
-    runs-on: ${{ matrix.runs-on }}
-
+    name: Build
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script

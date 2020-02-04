@@ -4,6 +4,7 @@ on: [repository_dispatch]
 
 jobs:
   build:
+    if: github.event_name == 'repository_dispatch' && github.event.action == 'testing_123'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

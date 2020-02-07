@@ -2,6 +2,7 @@ name: Repository Dispatch
 
 on:
   repository_dispatch:
+    types: foo_bar_baz
   push:
     branches:
       - master

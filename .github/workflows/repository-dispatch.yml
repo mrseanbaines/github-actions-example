@@ -18,4 +18,3 @@ jobs:
           echo github.event_name: ${{ github.event_name }}
           echo github.event.client_payload.environment: ${{ github.event.client_payload.environment }}
           echo github.ref: ${{ github.ref }}
-          echo github.event: ${{ JSON.stringify(github.event) }}

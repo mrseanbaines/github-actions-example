@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        run: |
+      - run: |
           echo github.event_name: ${{ github.event_name }}
           echo github.event.client_payload.environment: ${{ github.event.client_payload.environment }}
           echo github.ref: ${{ github.ref }}

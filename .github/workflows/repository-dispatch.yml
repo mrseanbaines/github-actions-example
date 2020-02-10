@@ -44,5 +44,6 @@ jobs:
       - uses: actions/download-artifact@v1
         with:
           name: my-artifact
+          path: path/to/artifact
 
-      - run: cat my-artifact
+      - run: cat path/to/artifact

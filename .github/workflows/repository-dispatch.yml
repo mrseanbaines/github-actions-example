@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     env:
-      my_env_var: ${{ 1 + 1 }}
+      my_env_var: ${{ 1 === 1 }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

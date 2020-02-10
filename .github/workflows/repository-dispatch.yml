@@ -19,7 +19,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           echo ::set-env name=BAR::$FOO
-          # echo ::set-env name=HELLO::$BANANA
+          echo ::set-env name=HELLO::$BANANA
       - uses: actions/checkout@v2
       - run: |
           echo github.event_name: ${{ github.event_name }}

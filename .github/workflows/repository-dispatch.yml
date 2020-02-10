@@ -1,4 +1,4 @@
-name: Repository Dispatch
+name: Test
 
 on:
   repository_dispatch:
@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     env:
       MY_ENV_VAR: ${{ github.event_name == 'push' }}
       FOO: hello world
@@ -19,7 +19,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           echo ::set-env name=BAR::$FOO
-          echo ::set-env name=HELLO::$BANANA
+          # echo ::set-env name=HELLO::$BANANA
       - uses: actions/checkout@v2
       - run: |
           echo github.event_name: ${{ github.event_name }}
@@ -27,5 +27,6 @@ jobs:
           echo github.ref: ${{ github.ref }}
           echo github.event.action: ${{ github.event.action }}
           echo MY_ENV_VAR: $MY_ENV_VAR
-          # echo FOO: $FOO
-          echo BAR: $BAR
+          echo ONE: $FOO
+          echo TWO: $BAR
+          echo THREE: $HELLO

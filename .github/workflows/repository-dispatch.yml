@@ -21,4 +21,4 @@ jobs:
           echo github.event.action: ${{ github.event.action }}
           echo MY_ENV_VAR: $MY_ENV_VAR
       - run: echo foo bar baz
-        if: $MY_ENV_VAR
+        if: ${{ $MY_ENV_VAR }}

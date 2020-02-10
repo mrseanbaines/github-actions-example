@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     env:
-      MY_ENV_VAR: ${{ 1 == 1 }}
+      MY_ENV_VAR: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,4 +21,4 @@ jobs:
           echo github.event.action: ${{ github.event.action }}
           echo MY_ENV_VAR: $MY_ENV_VAR
       - run: echo foo bar baz
-        if: github.event_name == 'push'
+        if: $MY_ENV_VAR == true

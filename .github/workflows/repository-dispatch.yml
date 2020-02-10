@@ -30,3 +30,4 @@ jobs:
           echo ONE: $FOO
           echo TWO: $BAR
           echo THREE: $HELLO
+          echo FOUR: $BANANA

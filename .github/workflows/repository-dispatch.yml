@@ -9,6 +9,8 @@ on:
 
 jobs:
   build:
+    env:
+      my_env_var: ${{ 1 + 1 }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,3 +19,4 @@ jobs:
           echo github.event.client_payload.environment: ${{ github.event.client_payload.environment }}
           echo github.ref: ${{ github.ref }}
           echo github.event.action: ${{ github.event.action }}
+          echo my_env_var: ${{ my_env_var }}

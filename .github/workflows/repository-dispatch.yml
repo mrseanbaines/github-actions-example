@@ -15,6 +15,12 @@ jobs:
       BANANA: ${{ secrets.BANANA }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: my-artifact
+
+      - run: cat my-artifact
+
       - name: Set Env Variables
         if: github.event_name == 'push'
         run: |
@@ -31,3 +37,12 @@ jobs:
           echo TWO: $BAR
           echo THREE: $HELLO
           echo FOUR: $BANANA
+
+      - run: mkdir -p path/to/artifact
+
+      - run: echo Hello, Sean! > path/to/artifact/world.txt
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: my-artifact
+          path: path/to/artifact

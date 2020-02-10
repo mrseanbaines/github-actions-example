@@ -27,4 +27,5 @@ jobs:
           echo github.ref: ${{ github.ref }}
           echo github.event.action: ${{ github.event.action }}
           echo MY_ENV_VAR: $MY_ENV_VAR
-          echo BAR: $BAR
+          echo ONE: $FOO
+          echo TWO: $BAR

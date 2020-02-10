@@ -11,8 +11,16 @@ jobs:
   build:
     env:
       MY_ENV_VAR: ${{ github.event_name == 'push' }}
+      FOO: hello world
+      BANANA: ${{ secrets.BANANA }}
     runs-on: ubuntu-latest
     steps:
+      - name: Set Env Variables
+        if: github.event_name == 'push'
+        run: |
+          echo ::set-env name=BAR::$FOO
+          echo ::set-env name=AWS_ACCESS_KEY::$AWS_ACCESS_KEY_PRODUCTION
+          echo ::set-env name=AWS_SECRET_ACCESS_KEY::$AWS_SECRET_ACCESS_KEY_PRODUCTION
       - uses: actions/checkout@v2
       - run: |
           echo github.event_name: ${{ github.event_name }}
@@ -20,3 +28,9 @@ jobs:
           echo github.ref: ${{ github.ref }}
           echo github.event.action: ${{ github.event.action }}
           echo MY_ENV_VAR: $MY_ENV_VAR
+          echo FOO: $FOO
+          echo FOO2: ${{ FOO }}
+          echo FOO3: ${ FOO }
+          echo FOO4: ${{FOO}}
+          echo FOO5: ${FOO}
+          echo BAR: $BAR

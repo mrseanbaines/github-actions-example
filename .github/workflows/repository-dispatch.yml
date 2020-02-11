@@ -9,6 +9,7 @@ on:
 
 jobs:
   test:
+    name: This is the ${{ github.event_name }} workflow
     env:
       MY_ENV_VAR: ${{ github.event_name == 'push' }}
       FOO: hello world

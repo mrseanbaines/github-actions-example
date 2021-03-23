@@ -7,10 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Foo
-        run: echo ${{ contains(fromJson('["hello-world", "banana"]'), 'hello-world') }}
-
-      - name: Bar
-        run: echo ${{ contains(fromJson('["hi-world", "banana"]'), 'hello-world') }}
-
-      - name: Baz
-        run: echo ${{ contains(fromJson('["hello-world", "banana"]'), 'hello') }}
+        if: contains(fromJson('["staging", "feature", "production", "experiment-staging", "experiment-production"]'), "experiment-staging")
+        run: echo It works 🎉

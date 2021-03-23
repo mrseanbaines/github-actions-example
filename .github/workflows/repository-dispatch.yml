@@ -1,44 +1,44 @@
-name: Test
+# name: Test
 
-on:
-  repository_dispatch:
-    types: foo_bar_baz
-  push:
-    branches:
-      - master
+# on:
+#   repository_dispatch:
+#     types: foo_bar_baz
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  test:
-    name: This is the ${{ github.event_name }} workflow
-    env:
-      MY_ENV_VAR: ${{ github.event_name == 'push' }}
-      FOO: hello world
-      BANANA: ${{ secrets.BANANA }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set Env Variables
-        if: github.event_name == 'push'
-        run: |
-          echo ::set-env name=BAR::$FOO
-          echo ::set-env name=HELLO::$BANANA
-      - uses: actions/checkout@v2
+# jobs:
+#   test:
+#     name: This is the ${{ github.event_name }} workflow
+#     env:
+#       MY_ENV_VAR: ${{ github.event_name == 'push' }}
+#       FOO: hello world
+#       BANANA: ${{ secrets.BANANA }}
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Set Env Variables
+#         if: github.event_name == 'push'
+#         run: |
+#           echo ::set-env name=BAR::$FOO
+#           echo ::set-env name=HELLO::$BANANA
+#       - uses: actions/checkout@v2
 
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+#       - name: Get yarn cache
+#         id: yarn-cache
+#         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#       - uses: actions/cache@v1
+#         with:
+#           path: ${{ steps.yarn-cache.outputs.dir }}
+#           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      - run: |
-          echo github.event_name: ${{ github.event_name }}
-          echo github.event.client_payload.environment: ${{ github.event.client_payload.environment }}
-          echo github.ref: ${{ github.ref }}
-          echo github.event.action: ${{ github.event.action }}
-          echo MY_ENV_VAR: $MY_ENV_VAR
-          echo ONE: $FOO
-          echo TWO: $BAR
-          echo THREE: $HELLO
-          echo FOUR: $BANANA
+#       - run: |
+#           echo github.event_name: ${{ github.event_name }}
+#           echo github.event.client_payload.environment: ${{ github.event.client_payload.environment }}
+#           echo github.ref: ${{ github.ref }}
+#           echo github.event.action: ${{ github.event.action }}
+#           echo MY_ENV_VAR: $MY_ENV_VAR
+#           echo ONE: $FOO
+#           echo TWO: $BAR
+#           echo THREE: $HELLO
+#           echo FOUR: $BANANA

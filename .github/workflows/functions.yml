@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Foo
-        if: ${{ contains(fromJson('["staging", "feature", "production", "experiment-staging", "experiment-production"]'), github.event.repository.name) }}
+        if: ${{ contains(fromJson('["staging", "feature", "production", "experiment-staging", "github-actions-example"]'), github.event.repository.name) }}
         run: echo It works 🎉

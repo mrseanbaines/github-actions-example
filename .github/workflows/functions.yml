@@ -1,11 +1,11 @@
-name: Functions
+# name: Functions
 
-on: push
+# on: push
 
-jobs:
-  job1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Foo
-        if: contains(fromJson('["staging", "feature", "production", "experiment-staging", "github-actions-example"]'), github.event.repository.name)
-        run: echo It works 🎉
+# jobs:
+#   job1:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Foo
+#         if: contains(fromJson('["staging", "feature", "production", "experiment-staging", "github-actions-example"]'), github.event.repository.name)
+#         run: echo It works 🎉

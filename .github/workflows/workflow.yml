@@ -1,10 +1,10 @@
-on: push
+# on: push
 
-jobs:
-  build:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: octocat/say-hello@v1
-        with:
-          name: OctoCat
+# jobs:
+#   build:
+#     runs-on: windows-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: octocat/say-hello@v1
+#         with:
+#           name: OctoCat

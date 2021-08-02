@@ -6,6 +6,9 @@ jobs:
     outputs:
       output1: Hello
       output2: World
+    steps:
+      - id: step1
+        run: echo "::set-output name=test::bananas"
 
   job2:
     runs-on: ubuntu-latest

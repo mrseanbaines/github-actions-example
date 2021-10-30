@@ -5,7 +5,7 @@ on: push
 jobs:
   call_workflow_passing_data:
     name: Call workflow passing data
-    uses: mrseanbaines/github-actions-example/.github/workflows/called-workflow.yml@v1
+    uses: mrseanbaines/github-actions-example/.github/workflows/called-workflow.yml@main
     with:
       username: mona
     secrets:

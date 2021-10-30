@@ -11,8 +11,8 @@ on:
         required: true
 
 jobs:
-  example_job:
-    name: Pass input and secrets to my-action
+  echo_input_and_secret:
+    name: Echo input and secret
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ inputs.username }} ${{ secrets.token }}
